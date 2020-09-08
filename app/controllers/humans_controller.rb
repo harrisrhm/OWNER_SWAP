@@ -1,5 +1,4 @@
 class HumansController < ApplicationController
-<<<<<<< HEAD
     def edit
         @human = Human.find(params[:id])
       end
@@ -11,14 +10,7 @@ class HumansController < ApplicationController
     # no need for app/views/humans/update.html.erb
         redirect_to human_path(@human)
     end
-
-    private
-
-    def human_params
-        params.require(:human).permit(:name, :description, :address, :rate)
-    end
-=======
-
+    
     def create
         @human = Human.new(human_params)
         if @human.save
@@ -28,12 +20,6 @@ class HumansController < ApplicationController
         end
     end
 
-    private
-    
-    def human_params
-        params.require(:human).permit(:decription, :address, :rate)
-    end
-
 
   def destroy
     @human.destroy
@@ -41,5 +27,11 @@ class HumansController < ApplicationController
     redirect_to humans_path
   end
 
->>>>>>> master
+    private
+
+    def human_params
+        params.require(:human).permit(:name, :description, :address, :rate)
+    end
+
+
 end
