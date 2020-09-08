@@ -2,6 +2,13 @@
     <div class="row">
         <div class="col-12">
             <h1><%= @human.name %></h1>
+            <h2><%= @human.description %></h2>
+            <h2><%= @human.address %></h2>
+            <h2><%= @human.rate %></h2>
         </div>
+        <h2><%= link_to  "Edit", edit_human_path(@human)  %> </h2>
+        <h2><%= link_to  "Delete", human_path(@human),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %> </h2>
     </div>
 </div>

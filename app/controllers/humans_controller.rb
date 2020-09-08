@@ -25,6 +25,7 @@ class HumansController < ApplicationController
     
     def create
         @human = Human.new(human_params)
+        @human.user = current_user
         if @human.save
             redirect_to human_path(@human)
         else
