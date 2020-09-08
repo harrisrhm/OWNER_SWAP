@@ -1,4 +1,5 @@
 class HumansController < ApplicationController
+
     def create
         @human = Human.new(human_params)
         if @human.save
@@ -13,4 +14,12 @@ class HumansController < ApplicationController
     def human_params
         params.require(:human).permit(:decription, :address, :rate)
     end
+
+
+  def destroy
+    @human.destroy
+
+    redirect_to humans_path
+  end
+
 end
