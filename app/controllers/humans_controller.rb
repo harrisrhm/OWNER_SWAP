@@ -1,5 +1,7 @@
 class HumansController < ApplicationController
-    before_action :set_human, only [:show, :edit, :update, :destroy]
+    before_action :set_humans, only: [:show, :edit, :update, :destroy]
+
+    skip_before_action :authenticate_user!, only: :index
 
     def index
         @humans = Human.all
@@ -44,4 +46,5 @@ class HumansController < ApplicationController
     def human_params
         params.require(:human).permit(:name, :description, :address, :rate)
     end
+
 end
