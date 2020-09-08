@@ -1,18 +1,23 @@
 class HumansController < ApplicationController
+    before_action :set_human, only [:show, :edit, :update, :destroy]
+
+    def index
+        @humans = Human.all
+    end
     
     def new
         @human = Human.new
     end
     
+    def show
+    end
+
     def edit
-        @human = Human.find(params[:id])
-      end
+    end
 
     def update
-        @human = Human.find(params[:id])
         @human.update(human_params)
 
-    # no need for app/views/humans/update.html.erb
         redirect_to human_path(@human)
     end
     
@@ -25,18 +30,18 @@ class HumansController < ApplicationController
         end
     end
 
-
-  def destroy
-    @human.destroy
-
-    redirect_to humans_path
-  end
+    def destroy
+        @human.destroy
+        redirect_to humans_path
+    end
 
     private
+
+    def set_humans
+        @human = Human.find(params[:id])
+    end
 
     def human_params
         params.require(:human).permit(:name, :description, :address, :rate)
     end
-
-
 end
