@@ -16,5 +16,4 @@ petuser = User.create!(name: "Bubbles", email: "Bubbles@cat.dog", password: "pas
     )
     human.save!
 end
-
-puts "Finished creating humans!"
+puts "Finish! Creating #{human.length} human "

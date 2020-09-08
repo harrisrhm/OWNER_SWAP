@@ -1,0 +1,16 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12">
+            <h1>All of our Humans!</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <%= @humans.each do |human| %>
+            <h4><%= human.name %></h4>
+            <h4><%= human.description %></h4>
+            <h4><%= human.address %></h4>
+            <h4><%= human.rate %></h4>
+        <% end %>
+    </div>
+</div>
