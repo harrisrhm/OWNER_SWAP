@@ -1,4 +1,9 @@
 class HumansController < ApplicationController
+    
+    def new
+        @human = Human.new
+    end
+    
     def edit
         @human = Human.find(params[:id])
       end
