@@ -5,22 +5,13 @@
         <div class="col-12">
             <h2><%= @human.description %></h2>
             <h2><%= @human.address %></h2>
-            <h2>$<%= @human.rate %> Per day</h2>
-
-            <div> 
-                <p> Review </p>
-                <% @human.reviews.each do |review| %>
-                    <p><%= review.rating %> stars - <%= review.description %> - <%= review.booking.user.name %></p>
-                <% end %>
-            </div>
-
+            <h2><%= @human.rate %> per day</h2>
         </div>
-        <%= link_to "Edit", edit_human_path(@human) %> |
+        <%= link_to "Edit", edit_human_path(@human)  %> |
         <%= link_to "Delete", human_path(@human),
             method: :delete,
-            data: { confirm: "Are you sure?" } %> |
-        <%= link_to "Back to list", humans_path %> |
-        <%= link_to "Make a booking", new_human_booking_path(@human) %>
+            data: { confirm: "Are you sure?" } %> </li> |
+        <%= link_to "Back to list", humans_path %>
     </div>
 </div>
 
