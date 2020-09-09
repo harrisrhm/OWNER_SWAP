@@ -1,0 +1,5 @@
+<%= simple_form_for [@human, booking] do |f| %>
+  <%= f.input :start_date, as: :string, input_html: {type: :date} %>
+  <%= f.input :end_date, as: :string, input_html: {type: :date} %>
+  <%= f.submit %>
+<% end %>
