@@ -8,4 +8,9 @@ Rails.application.routes.draw do
   resources :humans do
     resources :bookings
   end
+
+  resources :bookings do
+    resources :reviews
+  end
+
 end

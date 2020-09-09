@@ -11,6 +11,7 @@ class HumansController < ApplicationController
     end
     
     def show
+        @review = @human.reviews
     end
 
     def edit
