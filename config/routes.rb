@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/rails/info/routes' => 'routes'
   
   resources :humans do
-    resources :bookings
+    resources :bookings, only: [:new, :create]
   end
+
+  resources :bookings, only: [:index, :show]
 end
