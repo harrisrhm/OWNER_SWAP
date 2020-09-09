@@ -11,7 +11,7 @@ petuser = User.create!(name: "Bubbles", email: "Bubbles@cat.dog", password: "pas
         name: Faker::Restaurant.name, 
         description: Faker::ChuckNorris.fact,
         address: Faker::Address.city,
-        rate: [1..100].sample,
+        rate: (1..100).to_a.sample,
         user: petuser
     )
     human.save!
