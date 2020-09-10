@@ -1,33 +1,37 @@
-<div class="container mt-3">
+<div class="container">
+  <h1>My pending bookings</h1>
+  <% @bookings.each do |booking| %>
     <div class="row">
+      <div class="col-12">
+        <div class="card" style="background-image: url('https://source.unsplash.com/500x400/?human');">
+          <h2><%= booking.human.name %></h2>
+          <p><%= booking.start_date %> till <%= booking.end_date %></p>
+          <p><%= booking.status %></p>
+          <p> $ <%= booking.total_price %></p>
+          <%= link_to booking.human.name, booking_path(booking), class: 'card-link' %>
+        </div> 
+      </div>
+    </div>
+  <% end %>
+
+  <h1>Bookings for My Humans</h1>
+  <% @bookings.each do |booking| %>
+    <% if booking.human.user == current_user %>
+      <div class="row">
         <div class="col-12">
-            <h1>My bookings</h1>
+          <div class="card" style="background-image: url('https://source.unsplash.com/500x400/?human');">
+            <h2><%= booking.human.name %></h2>
+            <p><%= booking.start_date %> till <%= booking.end_date %></p>
+            <p><%= booking.status %></p>
+            <p><%= booking.total_price %>
+            <%= link_to "Accept", booking_path(booking, status: "Accepted"), method: :patch %>
+            <%= link_to "Decline", booking_path(booking, status: "Rejected"), method: :patch %>
+          <div>
         </div>
-    </div>
-  <div class="container">
-    <div class="row">
-      <% @bookings.each do |booking| %>
-  
-          <div class="col-12 col-md-6 col-lg-3">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?human');">
-
-              <div class="card-description">
-                <h2><%= booking.human.name %></h2>
-                <div class="card-info"
-                  <h3><%= booking.start_date %> till <%= booking.end_date %> </h3>
-                  <h4><%= booking.status %></h4>
-                  <h4> $ <%= booking.total_price %></h4>
-                </div>
-                
-            </div> 
-            <%= link_to booking.human.name, booking_path(booking), class: 'card-link' %>
-          </div>
-
-    </div>
-      <% end %>
-  </div>
-</div>
+      </div>
+    <% end %>
+  <% end %>
+  <%= link_to "Home", humans_path %>
 </div>
 
-<%= link_to "Home", humans_path %>
 
