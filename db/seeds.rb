@@ -9,10 +9,10 @@ puts "Clean all data"
 
 puts "Creating humans"
 
-petuser1 = User.create!(name: "Eric", email: "eric@gmail.com", password: "password")
-petuser2 = User.create!(name: "Haiden", email: "haiden@gmail.com", password: "password")
-petuser3 = User.create!(name: "Sam", email: "sam@gmail.com", password: "password")
-petuser4 = User.create!(name: "Harris", email: "harris@gmail.com", password: "password")
+petuser1 = User.create!(name: "dog", email: "eric@gmail.com", password: "password")
+petuser2 = User.create!(name: "cat", email: "haiden@gmail.com", password: "password")
+petuser3 = User.create!(name: "gofer", email: "sam@gmail.com", password: "password")
+petuser4 = User.create!(name: "penguin", email: "harris@gmail.com", password: "password")
 
 file_sam = URI.open('https://media-exp1.licdn.com/dms/image/C5603AQHGZIQyFcDMwg/profile-displayphoto-shrink_200_200/0?e=1605139200&v=beta&t=Jv8GYsDfFwikQgj1FQyyILWMk61L05fg27-WIDRZGYc')
 sam = Human.new(name: "Sam", description: "play with you all day", address: Faker::Address.full_address, rate: rand(1..10), user: petuser3 )
@@ -67,4 +67,3 @@ sy.save
 mathieu_review = Review.new(description: "good", rating: 4)
 mathieu_review.save
 puts "Finished!"
-

@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
   def show
     find_booking
     @human = @booking.human
+    @human_user = @human.user
   end
   
   def new
@@ -33,19 +34,37 @@ class BookingsController < ApplicationController
     end
   end
 
-  def edit
-  end
-  
+  # def edit
+  # end
+
+  # def accept
+  #   booking = current_user.bookings_recived.find(params[:id])
+  #   booking.accept
+  # #if user not accepted -- display booking
+  # #else user accepted -- 
+  # #only owner can accept or reject bookings
+  # end
+ 
+  # def reject
+  #   booking = current_user.bookings_recived.find(params[:id])
+  #   booking.reject
+  # end
+
+
   def update
     # show in index of bookings
-    # buttons post request to 
-    # user who created the human
-    # devise if logged_in? current_user
-    # if human(user_id) == current_user
+    find_booking
+    @booking.status = params[:status]
+    @booking.save
+    redirect_to bookings_path
   end
   
   def destroy
+    find_booking
+    @booking.destroy
+    redirect_to bookings_path
   end
+  
   
   private
   
@@ -55,5 +74,9 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :total_price, :status)
+  end
+
+  def set_params
+    params.require(:booking).permit(:status)
   end
 end

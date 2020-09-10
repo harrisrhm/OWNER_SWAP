@@ -1,5 +1,27 @@
-<p>My Booking</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>My Booking</h2>
 
-<p><%= @booking.human %></p>
-<%= link_to "Review", new_booking_review_path(@booking) %>
-<%# status %>
+      <h4> Human name </h4>
+      <p> <%= @human.name %> </p>
+
+      <h4> Description </h4>
+      <p> <%= @human.description %> </p>
+
+      <h4> Date </h4>
+      <p> <%= @booking.start_date %> to <%= @booking.end_date %> </p>
+
+      <h4> Total price </h4>
+      <p> <%= @booking.total_price %> dollar </p>
+      <%# need to add icon for doge dollar %>
+
+      <h4> Status </h4>
+      <p> <%= @booking.status %> by <%= @human_user.name %> </p>
+
+      <%= link_to "Review", new_booking_review_path(@booking) %> | 
+      <%= link_to "Dashboard", bookings_path %> |
+      <%= link_to "Delete", booking_path(@booking), method: :delete %>
+    </div>
+  </div>
+</div>
