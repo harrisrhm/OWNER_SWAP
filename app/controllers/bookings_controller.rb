@@ -39,8 +39,10 @@ class BookingsController < ApplicationController
   def accept
     booking = current_user.bookings_recived.find(params[:id])
     booking.accept
+  #if user not accepted -- display booking
+  #else user accepted -- 
   end
-
+ 
   def reject
     booking = current_user.bookings_recived.find(params[:id])
     booking.reject
@@ -51,7 +53,7 @@ class BookingsController < ApplicationController
     # show in index of bookings
     find_booking
     # buttons post request to 
-    @booking.status = "Human's confirmation"
+    @booking.status = "Awaiting Acceptance"
     @booking.save
     redirect_to booking_path(@booking)
     # user who created the human
