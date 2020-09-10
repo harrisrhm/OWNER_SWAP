@@ -4,21 +4,30 @@
             <h1>My bookings</h1>
         </div>
     </div>
-<div class="container">
-  <div class="row">
-    <% @bookings.each do |booking| %>
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?human');">
+  <div class="container">
+    <div class="row">
+      <% @bookings.each do |booking| %>
+  
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?human');">
 
-
-          <div class="card-description">
-            <h2><%= booking.human %></h2>
+              <div class="card-description">
+                <h2><%= booking.human.name %></h2>
+                <div class="card-info"
+                  <h3><%= booking.start_date %> till <%= booking.end_date %> </h3>
+                  <h4><%= booking.status %></h4>
+                  <h4> $ <%= booking.total_price %></h4>
+                </div>
+                
+            </div> 
+            <%= link_to booking.human.name, booking_path(booking), class: 'card-link' %>
           </div>
 
-        </div>
-      </div>
-    <% end %>
+    </div>
+      <% end %>
   </div>
 </div>
-
 </div>
+
+<%= link_to "Home", humans_path %>
+

@@ -33,18 +33,39 @@ class BookingsController < ApplicationController
     end
   end
 
-  def edit
+  # def edit
+  # end
+
+  def accept
+    booking = current_user.bookings_recived.find(params[:id])
+    booking.accept
+  #if user not accepted -- display booking
+  #else user accepted -- 
+  #only owner can accept or reject bookings
   end
-  
+ 
+  def reject
+    booking = current_user.bookings_recived.find(params[:id])
+    booking.reject
+  end
+
+
   def update
     # show in index of bookings
+    find_booking
     # buttons post request to 
+    @booking.status = "Accepted"
+    @booking.save
+    redirect_to booking_path(@booking)
     # user who created the human
     # devise if logged_in? current_user
     # if human(user_id) == current_user
   end
   
   def destroy
+    find_booking
+    @booking.destroy
+    redirect_to booking_path
   end
   
   private
