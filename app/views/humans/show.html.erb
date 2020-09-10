@@ -6,7 +6,7 @@
     <div class="col-12">
       <div class="card-product">
 
-        <%= image_tag (@human.name.downcase + '.jpg')%>
+        <%= cl_image_tag @human.photo.key%>
 
         <div class="card-product-infos">
           <h2><%= @human.description %></h2>
