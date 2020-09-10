@@ -4,6 +4,14 @@ class HumansController < ApplicationController
 
     def index
         @humans = Human.all
+
+
+        @markers = @humans.geocoded.map do |human|
+            {
+              lat: human.latitude,
+              lng: human.longitude
+            }
+          end
     end
     
     def new
