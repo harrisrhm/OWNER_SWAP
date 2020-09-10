@@ -1,6 +1,10 @@
 require 'faker'
+Review.destroy_all
+Booking.destroy_all
 Human.destroy_all
 User.destroy_all
+
+
 
 puts "Creating humans"
 
