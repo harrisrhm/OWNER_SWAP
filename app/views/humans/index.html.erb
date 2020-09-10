@@ -14,17 +14,16 @@
             <h2><%= human.name %></h2>
           </div>
 
-          <%= link_to human.name, human_path(human), class: 'card-link' %>
+          <%= link_to human.name, human_path(human), data: {turbolinks: "false"}, class: 'card-link' %>
           
         </div>
       </div>
     <% end %>
-
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-
   </div>
 </div>
+
+<div id="map"
+      style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>

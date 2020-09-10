@@ -20,6 +20,12 @@ class HumansController < ApplicationController
     
     def show
         @review = @human.reviews
+        @markers = [
+                    {
+                    lat: @human.latitude,
+                    lng: @human.longitude
+                    }
+        ]
     end
 
     def edit
