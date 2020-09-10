@@ -1,27 +1,35 @@
 <div class="container mt-3">
-    <h1><%= @human.name %></h1>
-    <div class="row">
-        <div class="col-12">
-        <div class="card-product">
-            <%= image_tag (@human.name.downcase + '.jpg')%>
-            <div class="card-product-infos">
-                <h2><%= @human.description %></h2>
-                <p><%= @human.address %></p>
-                <p>$<%= @human.rate %> Per day</p>
-            </div>
+
+  <h1><%= @human.name %></h1>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card-product">
+
+        <%= image_tag (@human.name.downcase + '.jpg')%>
+
+        <div class="card-product-infos">
+          <h2><%= @human.description %></h2>
+          <p><%= @human.address %></p>
+          <p>$<%= @human.rate %> Per day</p>
         </div>
-            <div> 
-                <p> Review </p>
-                <% @human.reviews.each do |review| %>
-                    <p><%= review.rating %> stars - <%= review.description %> - <%= review.booking.user.name %></p>
-                <% end %>
-            </div>
-        </div>
-        <%= link_to "Edit", edit_human_path(@human) %> |
-        <%= link_to "Delete", human_path(@human),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %> |
-        <%= link_to "Back to list", humans_path %> |
-        <%= link_to "Make a booking", new_human_booking_path(@human) %>
+
+      </div>
+      <div> 
+        <p>Review</p>
+        <% @human.reviews.each do |review| %>
+            <p><%= review.rating %> stars - <%= review.description %> - <%= review.booking.user.name %></p>
+        <% end %>
+      </div>
+
     </div>
+
+    <%= link_to "Edit", edit_human_path(@human) %> |
+    <%= link_to "Delete", human_path(@human),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %> |
+    <%= link_to "Back to list", humans_path %> |
+    <%= link_to "Make a booking", new_human_booking_path(@human) %>
+
+  </div>
 </div>
