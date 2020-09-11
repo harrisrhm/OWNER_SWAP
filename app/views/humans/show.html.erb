@@ -6,12 +6,11 @@
           <%= cl_image_tag @human.photo.key%>
         </div>
         <div id="map"
-          style="width: 100%; height: 600px;"
+          style="width: 100%; height: 200px;"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"> 
         </div>
       </div>
-
       
       <div class="card-product-infos d-flex justify-content-between p-3">
         <div class="">
@@ -23,15 +22,16 @@
           <%= link_to "Book", new_human_booking_path(@human), :class => "btn btn-flat" %>
         </div>
       </div>
-
-      <div class="d-flex justify-content-around">
-          | <%= link_to "Edit", edit_human_path(@human) %> |
+      <div class="d-flex p-3">
+        <% if @human.user == current_user %>
+          <%= link_to "Edit", edit_human_path(@human),class: "fa fa-user-plus" %> |
           <%= link_to "Delete", human_path(@human),
               method: :delete,
-              data: { confirm: "Are you sure?" } %> |
+              data: { confirm: "Are you sure?" } %>
+        <% end %>
+               |
           <%= link_to "Back to list", humans_path %> |
       </div>
-
       <div class="p-3">
           <h2>Review</h2>
           <% @human.reviews.each do |review| %>
