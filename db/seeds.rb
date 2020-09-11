@@ -17,7 +17,7 @@ petuser4 = User.create!(name: "penguin", email: "harris@gmail.com", password: "p
 file_sam = URI.open('https://avatars1.githubusercontent.com/u/24800556?v=4')
 sam = Human.new(name: "Sam", description: "play with you all day", address: "Las Vegas", rate: rand(1..10), user: petuser3 )
 sam.photo.attach(io: file_sam, filename: 'sam.png', content_type: 'image/png')
-sam.save!
+sam.save!   
 
 file_eric = URI.open('https://avatars2.githubusercontent.com/u/43982345?v=4')
 eric = Human.new(name: "Eric", description: "play with you all day", address: "Taipei", rate: rand(1..10), user: petuser3 )
@@ -34,6 +34,7 @@ nico = Human.new(name: "Nico", description: "play with you all day", address: "B
 nico.photo.attach(io: file_nico, filename: 'nico.png', content_type: 'image/png')
 nico.save!
 
+
 file_tiffany = URI.open('https://avatars3.githubusercontent.com/u/67130477?v=4')
 tiffany = Human.new(name: "Tiffany", description: "play with you all day", address: "London", rate: rand(1..10), user: petuser3 )
 tiffany.photo.attach(io: file_tiffany, filename: 'tiffany.png', content_type: 'image/png')
@@ -48,6 +49,12 @@ file_bence = URI.open('https://avatars2.githubusercontent.com/u/67093836?v=4')
 bence = Human.new(name: "Bence", description: "play with you all day", address: "Paris", rate: rand(1..10), user: petuser3 )
 bence.photo.attach(io: file_bence, filename: 'bence.png', content_type: 'image/png')
 bence.save!
+
+
+file_sharon = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1595228790/crha1cnhlullhgc8nlgf.jpg')
+sharon = Human.new(name: "Sharon", description: "play with you all day", address: "Praque", rate: rand(1..10), user: petuser3 )
+sharon.photo.attach(io: file_sharon, filename: 'sharon.png', content_type: 'image/png')
+sharon.save!
 
 
 file_mathieu = URI.open('https://avatars2.githubusercontent.com/u/64770169?v=4')
