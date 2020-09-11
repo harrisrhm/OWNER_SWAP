@@ -1,4 +1,3 @@
-
 <div class="container mt-3">
   <div class="row">
     <div class="col-12">
@@ -13,7 +12,9 @@
           <div class="card-description">
             <h2><%= human.name %></h2>
           </div>
-          <%= link_to human.name, human_path(human), class: 'card-link' %>
+
+          <%= link_to human.name, human_path(human), data: {turbolinks: false}, class: 'card-link' %>
+          
         </div>
       </div>
     <% end %>

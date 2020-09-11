@@ -4,6 +4,15 @@ class HumansController < ApplicationController
 
     def index
         @humans = Human.all
+
+        @markers = @humans.geocoded.map do |human|
+            {
+              lat: human.latitude,
+              lng: human.longitude,
+              infoWindow: render_to_string(partial: "/humans/info_window", locals: { human: human }),
+              image_url: helpers.asset_url('dog.jpg')
+            }
+          end
     end
     
     def new
@@ -12,6 +21,13 @@ class HumansController < ApplicationController
     
     def show
         @review = @human.reviews
+        @markers = [
+                    {
+                    lat: @human.latitude,
+                    lng: @human.longitude,
+                    image_url: helpers.asset_url('dog.jpg')
+                    }
+        ]
     end
 
     def edit
