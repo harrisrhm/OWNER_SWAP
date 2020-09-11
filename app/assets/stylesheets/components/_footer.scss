@@ -6,8 +6,9 @@
     width: 100%;
     padding: 0px 50px;
     color: rgba(0,0,0,0.3);
-    position: absolute;
+    // position: absolute;
     bottom: 0;
+    margin-top: 32px;
   }
   .footer-links {
     display: flex;
@@ -25,5 +26,17 @@
   }
   .footer .fa-heart {
     color: #D23333;
+  }
+
+  .page-content {
+    min-height: calc(100vh - 100px - 25px);
+    // margin-bottom: -100px;
+  }
+  .page-content::after {
+    content: "";
+    display: block;
+  }
+  footer, .page-content::after {
+    height: 100px;
   }
   

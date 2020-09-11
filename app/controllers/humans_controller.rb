@@ -18,9 +18,11 @@ class HumansController < ApplicationController
     end
 
     def update
-        @human.update(human_params)
-
-        redirect_to human_path(@human)
+        if @human.update(human_params)
+            redirect_to human_path(@human)
+        else
+            render 'edit'
+        end
     end
     
     def create
