@@ -6,3 +6,13 @@
     text-align: center;
     font-family: 'Open Sans', sans-serif;
   }
+
+  .human-card {
+    img {
+      width: 20%;
+      object-fit: cover;
+    }
+    .human-map {
+      width: 80%;
+    }
+  }
