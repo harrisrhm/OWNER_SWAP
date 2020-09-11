@@ -14,12 +14,12 @@ petuser2 = User.create!(name: "cat", email: "haiden@gmail.com", password: "passw
 petuser3 = User.create!(name: "gofer", email: "sam@gmail.com", password: "password")
 petuser4 = User.create!(name: "penguin", email: "harris@gmail.com", password: "password")
 
-file_sam = URI.open('https://media-exp1.licdn.com/dms/image/C5603AQHGZIQyFcDMwg/profile-displayphoto-shrink_200_200/0?e=1605139200&v=beta&t=Jv8GYsDfFwikQgj1FQyyILWMk61L05fg27-WIDRZGYc')
+file_sam = URI.open('https://avatars1.githubusercontent.com/u/24800556?v=4')
 sam = Human.new(name: "Sam", description: "play with you all day", address: "Las Vegas", rate: rand(1..10), user: petuser3 )
 sam.photo.attach(io: file_sam, filename: 'sam.png', content_type: 'image/png')
 sam.save!
 
-file_eric = URI.open('https://media-exp1.licdn.com/dms/image/C5635AQESwIbYcVI5ig/profile-framedphoto-shrink_200_200/0?e=1599800400&v=beta&t=WL2y2C6uHUHYvKtZ1HfpVzsawXte-Mm5bi8AC0Vqmgs')
+file_eric = URI.open('https://avatars2.githubusercontent.com/u/43982345?v=4')
 eric = Human.new(name: "Eric", description: "play with you all day", address: "Taipei", rate: rand(1..10), user: petuser3 )
 eric.photo.attach(io: file_eric, filename: 'eric.png', content_type: 'image/png')
 eric.save!
