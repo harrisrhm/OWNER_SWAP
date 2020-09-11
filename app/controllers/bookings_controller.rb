@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = "Awaiting Acceptance"
     if @booking.start_date && @booking.end_date
-      @booking.total_price = (@booking.end_date - @booking.start_date) * @human.rate
+      @booking.total_price = (@booking.end_date - @booking.start_date + 1) * @human.rate
     else
       @booking.total_price = 0 #TODO make alert that this time period is not valid
     end

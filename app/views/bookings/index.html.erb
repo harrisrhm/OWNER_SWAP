@@ -3,7 +3,7 @@
   <% @bookings.each do |booking| %>
     <div class="row">
       <div class="col-12">
-        <div class="card" style="background-image: url('https://source.unsplash.com/500x400/?human');">
+        <div class="card" style="background-image: url('<%= cl_image_path booking.human.photo.key, :crop=>"fit" %>');">
           <h2><%= booking.human.name %></h2>
           <p><%= booking.start_date %> till <%= booking.end_date %></p>
           <p><%= booking.status %></p>
